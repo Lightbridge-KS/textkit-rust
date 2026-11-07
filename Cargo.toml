@@ -1,0 +1,26 @@
+# ─────────────────────────────────────────────────────────────
+# PACKAGE manifest
+#
+# One Cargo.toml = one package. This package contains:
+#   • 1 library crate   → root: src/lib.rs        (crate name: textkit)
+#   • 2 binary crates   → root: src/main.rs       (executable: textkit)
+#                         root: src/bin/bench_tool.rs (executable: bench_tool)
+#   • test / example crates under tests/ and examples/
+#
+# None of these crate roots are listed below: Cargo finds them by
+# convention from the folder layout.
+# ─────────────────────────────────────────────────────────────
+[package]
+name = "textkit"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"           # edition 2024 needs Rust 1.85+
+description = "Teaching example: packages, crates and modules (lib + main pattern)"
+publish = false                 # just a learning project
+
+# With more than one binary, `cargo run` needs to know which one to run.
+# This makes plain `cargo run` run src/main.rs.
+default-run = "textkit"
+
+[dependencies]
+# No external crates: everything here uses only the standard library.
